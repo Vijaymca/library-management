@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library</title>
+    <style>
+        body{
+            background-image: -moz-linear-gradient(90deg,blue,white,blue);
+            background-image: -webkit-linear-gradient(90deg,blue,white,blue);
+            background-image: -webkit-linear-gradient(90deg,blue,white,blue);
+            height: 600px;
+        }
+        h1{
+            margin-top: 100px;
+            margin-left: 550px;
+        }
+#library {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+img {
+    max-width: 150px;
+    margin: 10px;
+}
+input{
+    margin-left: 450px;
+    margin-top: 80px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Tamil Book</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="addBook()">Add Book</button>
+    <div id="library">
+        
+    </div>
+
+    <script >
+        
+function addBook() {
+    const imageInput = document.getElementById("imageInput");
+    const library = document.getElementById("library");
+
+   
+    if (imageInput.files.length > 0) {
+        const file = imageInput.files[0];
+
+        const bookImage = document.createElement("img");
+        bookImage.src = URL.createObjectURL(file);
+        bookImage.alt = "Book Cover";
+
+        
+        library.appendChild(bookImage);
+
+       
+        imageInput.value = "";
+    }
+}
+
+    </script>
+</body>
+</html>
